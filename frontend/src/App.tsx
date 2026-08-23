@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import axios from 'axios';
 import {
   Film, Image as ImageIcon, Moon, Sun, Video, Type, Wand2,
-  FolderKanban, Sparkles, Bot, ChevronDown, Check, Trash2, Plus, X,
+  Sparkles, Bot, ChevronDown, Check, Trash2, Plus, X,
   Download, Settings, Menu, ArrowRight,
   RotateCcw, FolderOpen, Layers, FilePlus, Users, Send, Home,
 } from 'lucide-react';
@@ -425,7 +425,7 @@ function UseCaseCard({ type, tag, steps, models, cost, title, prompt, isLight, o
           </div>
         )}
         <span className={`absolute top-3 left-3 z-20 inline-flex items-center rounded-md px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider border ${tagColors[tag] || tagColors.Film}`}>{tag}</span>
-        <span className={`absolute top-3 right-3 z-20 text-[10px] font-medium ${isLight ? 'text-slate-500' : 'text-gray-500'}`}>{steps} steps · ${cost}</span>
+        <span className={`absolute top-3 right-3 z-20 text-[10px] font-medium ${isLight ? 'text-slate-500' : 'text-gray-500'}`}>{steps} steps · {models} models · ${cost}</span>
       </div>
       <div className="p-5 flex flex-col flex-1">
         <h3 className={`text-base font-medium mb-3 ${isLight ? 'text-slate-900' : 'text-white'}`}>{title}</h3>
@@ -560,7 +560,7 @@ function App() {
   const activeSession = sessions.find(s => s.id === activeSessionId);
   const activeMessages = activeSession?.messages ?? [];
 
-  const handleSessionClick = (id: string, tab: string) => {
+  const handleSessionClick = (id: string, _tab?: string) => {
     setActiveSessionId(id);
     setView('chat');
     if (window.innerWidth < 1024) setSidebarOpen(false);
