@@ -1,3 +1,8 @@
+---
+name: AuditSkill
+description: The 21-Point Zero-Defect Quality Control Engine for AI Cinema Prompt Inspection and Verification.
+---
+
 # 🛡️ AUDIT-SKILL: THE 20-POINT ZERO-DEFECT QUALITY CONTROL ENGINE
 **Fungsi:** Engine Inspeksi Kualitas Mutlak (*Zero-Defect Quality Control*) untuk menjamin **ONE GENERATE SUCCESS** — Sekali generate prompt langsung 100% sukses sempurna, presisi, sinematik, bebas glitch, bebas morphing, dan siap dirender tanpa perlu perbaikan.
 

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZERO CINEMA — DIRECTORS STUDIO</title>
+    <!-- Ultra-Clean Cinema Typography: Inter & Space Grotesk & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Marked.js & Highlight.js -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/black-metal.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="cinema-body">
+    <!-- Subtle Cinema Background -->
+    <div class="cinema-bg-backdrop"></div>
+
+    <div class="cinema-frame">
+        <!-- Viewfinder Reticle Corner Marks (Pure White) -->
+        <div class="viewfinder-crosshair top-left"></div>
+        <div class="viewfinder-crosshair top-right"></div>
+        <div class="viewfinder-crosshair bottom-left"></div>
+        <div class="viewfinder-crosshair bottom-right"></div>
+
+        <!-- Cinema Header -->
+        <header class="cinema-header">
+            <div class="header-brand-group">
+                <div class="brand-insignia">
+                    <!-- Pure White Panavision Aperture Iris Icon -->
+                    <svg class="film-aperture-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffffff" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="m14.31 8 5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16 3.95 6.06M14.31 16H2.83M16.62 12l-5.74 9.94"/></svg>
+                    <span class="slate-title">ZERO CINEMA</span>
+                </div>
+                <span class="slate-sub" id="brandSub">DIRECTING ENGINE • 35MM PRODUCTION</span>
+            </div>
+
+            <div class="header-right">
+                <!-- Language Switcher -->
+                <div class="lang-switch-container">
+                    <button class="lang-btn active" id="langIdBtn" onclick="setLanguage('id')">ID</button>
+                    <span class="lang-divider">/</span>
+                    <button class="lang-btn" id="langEnBtn" onclick="setLanguage('en')">EN</button>
+                </div>
+
+                <div class="spec-selector">
+                    <span class="spec-label">MODEL:</span>
+                    <select id="modelSelect" class="cinema-select">
+                        <option value="deepseek-ai/DeepSeek-V3.1">DEEPSEEK V3.1</option>
+                        <option value="anthropic/claude-sonnet-4.6">CLAUDE SONNET 4.6</option>
+                        <option value="google/gemini-2.5-flash">GEMINI 2.5 FLASH</option>
+                    </select>
+                </div>
+                <button class="btn-slate-action" onclick="clearChat()">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                    <span id="newSessionBtnText">NEW SESSION</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Screenplay Document Stream -->
+        <main class="cinema-feed-viewport" id="chatViewport">
+            <div class="cinema-feed-inner" id="chatMessages">
+                <!-- Welcome Slate Card -->
+                <div class="screenplay-slate assistant">
+                    <div class="slate-header-strip">
+                        <div class="slate-num-pill" id="welcomeSceneTag">SCENE 001</div>
+                        <div class="slate-spec-info">PANAVISION DXL2 • 70MM PRIMO • -14 LUFS</div>
+                        <div class="slate-take-info">TAKE 01</div>
+                    </div>
+                    <div class="slate-page-card">
+                        <div class="card-crest">
+                            <div class="crest-title" id="welcomeCrestTitle">PRODUCTION MEMORANDUM</div>
+                            <div class="crest-date" id="welcomeCrestStage">STAGE: PRE-PRODUCTION</div>
+                        </div>
+                        <div class="card-screenplay-body markdown-body" id="welcomeBody">
+                            <!-- Populated dynamically via app.js -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Bottom Cinema Director Console -->
+        <footer class="cinema-footer">
+            <div class="footer-container">
+                <!-- Dynamic Cinema Activity Ticker -->
+                <div id="liveActivityBar" class="cinema-activity-ticker" style="display: none;">
+                    <span class="ticker-iris-icon">
+                        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#ffffff" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
+                    </span>
+                    <span class="ticker-tag">PROCESSING //</span>
+                    <span id="activityText" class="ticker-text">CALIBRATING 35MM OPTICAL CHAIN...</span>
+                </div>
+
+                <!-- Sleek Cinema Input Bar -->
+                <div class="cinema-input-box">
+                    <div class="input-reel-symbol">
+                        <!-- Pure White 35mm Filmstrip Reel Icon -->
+                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#ffffff" stroke-width="1.8"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 3v18M17 3v18M3 7h18M3 17h18"/></svg>
+                    </div>
+                    <textarea 
+                        id="chatInput" 
+                        class="cinema-textarea" 
+                        placeholder="Tulis visi adegan atau naskah film Anda di sini... (Enter untuk kirim, Shift+Enter untuk baris baru)" 
+                        rows="1"
+                    ></textarea>
+                    <button id="sendButton" class="cinema-execute-btn" onclick="handleSend()" aria-label="Execute prompt">
+                        <span id="sendButtonText">EXECUTE</span>
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                </div>
+
+                <div class="cinema-hud-bottom">
+                    <span class="hud-item">PICE IMAGING SPEC: PANAVISION</span>
+                    <span class="hud-separator">/</span>
+                    <span class="hud-item">SSS EQUILIBRIUM: CALIBRATED</span>
+                    <span class="hud-separator">/</span>
+                    <span class="hud-item">ATLAS CLOUD 100% READY</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -299,8 +299,9 @@ Untuk produksi video sekuensial yang terdiri dari beberapa klip (KLIP 1, KLIP 2,
   - @Audio1 = Voice_Persona_Aris_Panicking
   `
 
-### 5. The Absolute Zero-Disconnection & Seamless Cut-on-Action Mandate (Rule 49)
-- **Potongan Aksi Kinetik (*Cut-on-Action*):** Detik terakhir KLIP N (misal detik [9.9s]) WAJIB menghentikan adegan saat gerakan fisik sedang berlangsung (misal: *mulai melompat, baru menoleh, ayunan tangan Silat*). Detik [0.0s] KLIP N+1 WAJIB menyambut dan melanjutkan momentum fisik tersebut dari sudut kamera yang berbeda!
+### 5. The Absolute Zero-Disconnection & Seamless Cut-on-Action Mandate (Rule 49 & Anti-Jump-Cut Law)
+- **Potongan Aksi Kinetik (*Cut-on-Action*):** Detik terakhir KLIP N WAJIB menghentikan adegan saat gerakan fisik sedang berlangsung (misal: *mulai melompat, baru menoleh, ayunan tangan Silat*). Detik [0.0s] KLIP N+1 WAJIB menyambut dan melanjutkan momentum fisik tersebut.
+- **Hukum Perbatasan Cut Multi-Klip (Anti-Jump-Cut Mandate):** Baik pada **Multi-Klip Per Prompt (5s)** (breakdown per 5 detik) maupun **Multi-Klip Per Prompt Full Durasi** (10s–15s utuh per klip), **AKHIR VIDEO/KLIP PERTAMA (Clip N)** dan **AWAL VIDEO/KLIP KEDUA (Clip N+1)** **WAJIB 100% MEMILIKI BEDA ANGLE (Sudut Kamera) DAN BEDA SHOT (Framing Kamera)** (misal: Wide Shot 35mm ➔ Reverse Angle OTS 85mm / Extreme Close-Up). Dilarang keras menggunakan angle atau framing shot yang sama antar perbatasan klip untuk mencegah terjadinya *Jump Cut* saat disatukan di post-production editor.
 - **Pengecualian Lompat Waktu (*Time-Jump Exemption*):** Jika naskah meminta lompatan waktu (*3 jam kemudian, keesokan harinya*) atau perpindahan lokasi, suntikkan tag [SCENE BREAK / TIME JUMP] dan perbarui pencahayaan/waktu di Prose.
 
 ### 6. The 180° Environment Reference Angle Binding & SubEnv Exclusivity Law (Rule 53)

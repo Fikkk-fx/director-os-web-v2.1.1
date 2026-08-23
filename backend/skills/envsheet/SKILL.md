@@ -1,3 +1,8 @@
+---
+name: EnvSheet
+description: Cinematic Environment Reference Sheet Generator v3.0 (4-Panel Cardinal Compass Grid Protocol).
+---
+
 # EnvSheet — Cinematic Environment Sheet Generator v3.0 (4-Panel Cardinal Compass Grid Protocol)
 
 ## Purpose
