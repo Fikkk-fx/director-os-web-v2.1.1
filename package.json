@@ -1,0 +1,7 @@
+{
+  "name": "director-os-web-v2-1-1",
+  "private": true,
+  "scripts": {
+    "build": "npm --prefix frontend run build"
+  }
+}

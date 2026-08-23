@@ -1,8 +1,6 @@
 {
-  "buildCommand": "if [ -d \"frontend\" ]; then cd frontend && npm install && npm run build; else npm install && npm run build; fi",
+  "buildCommand": "npm --prefix frontend install && npm --prefix frontend run build",
   "outputDirectory": "frontend/dist",
-  "installCommand": "if [ -d \"frontend\" ]; then cd frontend && npm install; else npm install; fi",
-  "framework": "vite",
   "rewrites": [
     {
       "source": "/(.*)",
